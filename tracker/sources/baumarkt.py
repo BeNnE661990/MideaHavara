@@ -1,5 +1,4 @@
-"""Baumarkt-Adapter für OBI, Bauhaus und Hornbach (gemeinsamer Code).
-
+"""Baumarkt-Adapter für OBI, Bauhaus, Hornbach und toom (gemeinsamer Code).
 Diese Shops blocken einfache Requests mit HTTP 403, betten aber strukturierte
 Produktdaten (JSON-LD) ein. Wir versuchen daher zuerst einen normalen Request
 und fallen bei Block auf eine echte Browser-Session (Playwright/Chromium)
@@ -19,7 +18,7 @@ from .jsonld import extract_products
 
 log = logging.getLogger(__name__)
 
-_LABEL = {"obi": "OBI", "bauhaus": "BAUHAUS", "hornbach": "Hornbach"}
+_LABEL = {"obi": "OBI", "bauhaus": "BAUHAUS", "hornbach": "Hornbach", "toom": "toom"}
 
 
 def _html(url: str) -> str | None:
