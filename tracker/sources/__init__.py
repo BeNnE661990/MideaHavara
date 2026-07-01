@@ -16,7 +16,7 @@ from . import amazon, baumarkt, geizhals, idealo, mediamarkt
 SourceFn = Callable[[Config, Product], list[Offer]]
 
 # Registrierung: Quellenname -> Aufruf-Funktion.
-# saturn/obi/bauhaus/hornbach teilen sich Code mit ihren Geschwister-Modulen.
+# saturn/obi/bauhaus/hornbach/toom teilen sich Code mit ihren Geschwister-Modulen.
 SOURCES: dict[str, SourceFn] = {
     "geizhals": geizhals.fetch_offers,
     "idealo": idealo.fetch_offers,
@@ -25,6 +25,7 @@ SOURCES: dict[str, SourceFn] = {
     "obi": lambda cfg, product: baumarkt.fetch_offers(cfg, product, chain="obi"),
     "bauhaus": lambda cfg, product: baumarkt.fetch_offers(cfg, product, chain="bauhaus"),
     "hornbach": lambda cfg, product: baumarkt.fetch_offers(cfg, product, chain="hornbach"),
+    "toom": lambda cfg, product: baumarkt.fetch_offers(cfg, product, chain="toom"),
     "amazon": amazon.fetch_offers,
 }
 
